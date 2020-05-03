@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
     
@@ -23,8 +24,26 @@ class ViewController: UIViewController {
     }
     
     @IBAction func signUp(_ sender: Any) {
-        
+        if textFieldEmail.text != "" && textFieldPassword.text != "" {
+            Auth.auth().createUser(withEmail: textFieldEmail.text!, password: textFieldPassword.text!) { (authData, error) in
+                if error != nil {
+                    self.showAlert(title: error?.localizedDescription ?? "Firebase auth error")
+                } else {
+                    self.performSegue(withIdentifier: "goHome", sender: nil)
+                }
+            }
+        } else {
+           showAlert(title: "Username/Passowrd?")
+        }
+
     }
     
+    func showAlert(title: String) {
+        let alert = UIAlertController(title: "Warning", message: title, preferredStyle: .alert)
+                   
+        let okButton = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
