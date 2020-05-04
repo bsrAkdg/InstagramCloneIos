@@ -14,14 +14,58 @@
                     <view key="view" contentMode="scaleToFill" id="hMS-p3-BVg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Lfv-sx-mdA">
+                                <rect key="frame" x="44" y="105" width="326" height="323"/>
+                                <color key="tintColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Comment" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Kt-lv-sHx">
+                                <rect key="frame" x="32" y="472" width="350" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="rGr-iL-Ryi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZUg-zb-q1C">
+                                <rect key="frame" x="135" y="544" width="145" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="5TI-BJ-8N9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <state key="normal" title="Upload">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="uploadImage:" destination="nc1-BL-POW" eventType="touchUpInside" id="wXb-RP-2MJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Lfv-sx-mdA" firstAttribute="top" secondItem="KaB-zi-ZQI" secondAttribute="top" constant="60.5" id="0uc-3c-SZu"/>
+                            <constraint firstItem="ZUg-zb-q1C" firstAttribute="leading" secondItem="KaB-zi-ZQI" secondAttribute="leading" constant="135" id="43z-v0-cAT"/>
+                            <constraint firstItem="1Kt-lv-sHx" firstAttribute="leading" secondItem="KaB-zi-ZQI" secondAttribute="leading" constant="32" id="5Zp-6X-hKZ"/>
+                            <constraint firstItem="Lfv-sx-mdA" firstAttribute="centerX" secondItem="1Kt-lv-sHx" secondAttribute="centerX" id="7ML-gJ-CQH"/>
+                            <constraint firstItem="KaB-zi-ZQI" firstAttribute="bottom" secondItem="ZUg-zb-q1C" secondAttribute="bottom" constant="212" id="7SM-qH-B3J"/>
+                            <constraint firstItem="1Kt-lv-sHx" firstAttribute="top" secondItem="Lfv-sx-mdA" secondAttribute="bottom" constant="42.5" id="8wd-4q-MHI"/>
+                            <constraint firstItem="Lfv-sx-mdA" firstAttribute="leading" secondItem="KaB-zi-ZQI" secondAttribute="leading" constant="44" id="Ej0-u5-irS"/>
+                            <constraint firstItem="1Kt-lv-sHx" firstAttribute="centerX" secondItem="ZUg-zb-q1C" secondAttribute="centerX" id="V90-uK-Bjw"/>
+                            <constraint firstItem="Lfv-sx-mdA" firstAttribute="centerX" secondItem="hMS-p3-BVg" secondAttribute="centerX" id="cH9-Uq-wLJ"/>
+                            <constraint firstItem="ZUg-zb-q1C" firstAttribute="top" secondItem="1Kt-lv-sHx" secondAttribute="bottom" constant="38" id="gL8-14-TaZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="KaB-zi-ZQI"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Upload" image="u.circle" catalog="system" id="45O-00-uV9"/>
+                    <connections>
+                        <outlet property="btnUpload" destination="ZUg-zb-q1C" id="rKb-Hz-VVu"/>
+                        <outlet property="imageView" destination="Lfv-sx-mdA" id="VLb-vh-hdo"/>
+                        <outlet property="textFieldComment" destination="1Kt-lv-sHx" id="SR3-ML-nkD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UIL-MP-XTg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-520" y="209"/>
+            <point key="canvasLocation" x="-520.28985507246375" y="208.92857142857142"/>
         </scene>
         <!--Settings-->
         <scene sceneID="17y-fe-56b">
@@ -169,6 +213,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera" catalog="system" width="128" height="96"/>
         <image name="f.circle" catalog="system" width="128" height="121"/>
         <image name="s.circle" catalog="system" width="128" height="121"/>
         <image name="u.circle" catalog="system" width="128" height="121"/>
