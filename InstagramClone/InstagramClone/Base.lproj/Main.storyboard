@@ -71,7 +71,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="rci-ti-eLl">
             <objects>
-                <tabBarController id="OoC-11-YJ5" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="homeTab" id="OoC-11-YJ5" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="JTQ-TY-iv9"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5uX-7c-WmH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>

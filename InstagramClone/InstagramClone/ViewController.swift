@@ -16,11 +16,20 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func signIn(_ sender: Any) {
-        performSegue(withIdentifier: "goHome", sender: nil)
+        if textFieldEmail.text != "" && textFieldPassword.text != "" {
+            Auth.auth().signIn(withEmail: textFieldEmail.text!, password: textFieldPassword.text!) { (authData, error) in
+                if error != nil {
+                    self.showAlert(title: error?.localizedDescription ?? "Firebase auth error")
+                } else {
+                    self.performSegue(withIdentifier: "goHome", sender: nil)
+                }
+            }
+        } else {
+            showAlert(title: "Username/Passowrd?")
+        }
     }
     
     @IBAction func signUp(_ sender: Any) {
