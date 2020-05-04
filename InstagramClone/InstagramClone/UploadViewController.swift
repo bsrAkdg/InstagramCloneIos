@@ -43,15 +43,19 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         let mediaFolder = reference.child("media") //storage directory name
         
         if let data = imageView.image?.jpegData(compressionQuality: 0.5) {
-            let imageReference = mediaFolder.child("image.jpg")
+            let uuid = UUID().uuidString
+            let imageReference = mediaFolder.child("\(uuid).jpg")
             imageReference.putData(data, metadata: nil) { (metaData, error) in
                 if error != nil {
-                    print(error?.localizedDescription ?? "Upload not successful")
+                    self.showAlert(title: "Error", message: error?.localizedDescription ?? "Upload not successful")
                 } else {
                     print(imageReference.downloadURL(completion: { (url, urlError) in
                         if urlError == nil {
                             let imageUrl = url?.absoluteString
-                            print(imageUrl ?? "")
+                            
+                            // DATABASE
+                            
+                            
                         }
                     }))
                 }
@@ -60,4 +64,10 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         
     }
     
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        let okButton = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
+    }
 }
