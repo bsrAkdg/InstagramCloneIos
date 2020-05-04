@@ -33,9 +33,7 @@
                                     <constraint firstAttribute="height" constant="57" id="5TI-BJ-8N9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <state key="normal" title="Upload">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
+                                <state key="normal" title="Upload"/>
                                 <connections>
                                     <action selector="uploadImage:" destination="nc1-BL-POW" eventType="touchUpInside" id="wXb-RP-2MJ"/>
                                 </connections>
