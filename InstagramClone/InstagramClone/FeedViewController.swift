@@ -44,10 +44,11 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                     self.posts.removeAll(keepingCapacity: false)
                     
                     for document in snapshot!.documents {
-                        let documentId = document.documentID
-                        print("IDDDDD : \(documentId)")
                         
                         let newPost = Post()
+                        
+                        newPost.documentId = document.documentID
+                        
                         if let postedBy = document.get("postedBy") as? String {
                             newPost.postedBy = postedBy
                         }
@@ -91,6 +92,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.labelUserEmail.text = post.postedBy
         cell.labelLike.text = String(post.likes ?? 0)
         cell.imagePost.sd_setImage(with: URL(string: post.imageUrl!))
+        cell.documentId = post.documentId
+        
         return cell
     }
     

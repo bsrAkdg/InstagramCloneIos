@@ -10,6 +10,7 @@ import Foundation
 
 
 class Post {
+    var documentId : String?
     var date : String?
     var imageUrl : String?
     var likes : Int?
