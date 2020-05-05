@@ -31,7 +31,10 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         settings.areTimestampsInSnapshotsEnabled = true
         fireStoreDatabase.settings = settings */
         
-        fireStoreDatabase.collection("Posts").addSnapshotListener { (snapshot, error) in
+        fireStoreDatabase
+            .collection("Posts")
+            .order(by: "date", descending: true) // sort by date
+            .addSnapshotListener { (snapshot, error) in
             if error != nil {
                 
             } else {
